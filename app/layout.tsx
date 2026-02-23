@@ -42,9 +42,8 @@ export const metadata: Metadata = {
     siteName: 'Markos',
     type: 'website',
     images: [
+      { url: '/opengraph-image', width: 1200, height: 630, alt: 'Markos - Markdown Editor' },
       { url: '/og.svg', type: 'image/svg+xml', width: 1200, height: 630, alt: 'Markos - Markdown Editor' },
-      { url: '/og.png', width: 1200, height: 630, alt: 'Markos - Markdown Editor' },
-      { url: '/icon.svg', type: 'image/svg+xml', width: 32, height: 32, alt: 'Markos' },
     ],
   },
   twitter: {
