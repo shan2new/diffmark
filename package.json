@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbo",
-    "build": "next build",
+    "build": "next build --webpack",
     "start": "next start",
     "lint": "next lint"
   },
@@ -50,8 +50,8 @@
     "react": "19.2.3",
     "react-day-picker": "8.10.1",
     "react-dom": "19.2.3",
-    "react-markdown": "^9.0.3",
     "react-hook-form": "^7.54.1",
+    "react-markdown": "^9.0.3",
     "react-resizable-panels": "^2.1.7",
     "recharts": "2.15.0",
     "sonner": "^1.7.1",
@@ -62,13 +62,14 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.16",
-
     "@types/node": "^22",
     "@types/react": "19.2.7",
     "@types/react-dom": "19.2.3",
+    "javascript-obfuscator": "^5.3.0",
     "postcss": "^8.5",
     "tailwindcss": "^3.4.17",
-    "typescript": "5.7.3"
+    "typescript": "5.7.3",
+    "webpack-obfuscator": "^3.6.0"
   },
   "pnpm": {
     "overrides": {
