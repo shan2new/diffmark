@@ -46,7 +46,7 @@ export function AboutAndFaq() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <aside
-        className="shrink-0 border-b border-foreground/[0.06] bg-muted/30 px-4 py-2"
+        className="sr-only"
         aria-label="About Markos and FAQ"
       >
         <p className="text-center text-xs text-muted-foreground">
