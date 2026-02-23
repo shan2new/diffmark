@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@vercel/analytics": "^1.6.1",
     "@hookform/resolvers": "^3.9.1",
     "@radix-ui/react-accordion": "1.2.2",
     "@radix-ui/react-alert-dialog": "1.1.4",
@@ -38,6 +37,7 @@
     "@radix-ui/react-toggle": "1.1.1",
     "@radix-ui/react-toggle-group": "1.1.1",
     "@radix-ui/react-tooltip": "1.1.6",
+    "@vercel/analytics": "^1.6.1",
     "autoprefixer": "^10.4.20",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -54,6 +54,7 @@
     "react-hook-form": "^7.54.1",
     "react-markdown": "^9.0.3",
     "react-resizable-panels": "^2.1.7",
+    "react-syntax-highlighter": "^16.1.0",
     "recharts": "2.15.0",
     "sonner": "^1.7.1",
     "tailwind-merge": "^2.5.5",
@@ -66,6 +67,7 @@
     "@types/node": "^22",
     "@types/react": "19.2.7",
     "@types/react-dom": "19.2.3",
+    "@types/react-syntax-highlighter": "^15.5.13",
     "javascript-obfuscator": "^5.3.0",
     "postcss": "^8.5",
     "tailwindcss": "^3.4.17",

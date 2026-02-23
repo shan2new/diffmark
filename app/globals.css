@@ -186,20 +186,29 @@
 }
 
 .preview-prose pre {
-  border: 1px solid hsl(var(--foreground) / 0.05);
-  border-top: 1px solid hsl(var(--foreground) / 0.03);
   background: hsl(var(--foreground) / 0.02) !important;
+  color: hsl(var(--foreground) / 0.88);
   border-radius: 8px;
   font-size: 12.5px;
   line-height: 1.7;
-  padding: 1em 1.25em !important;
+  padding: 0.75em !important;
   box-shadow: inset 0 1px 0 0 hsl(0 0% 100% / 0.03), 0 1px 3px 0 hsl(var(--foreground) / 0.02);
+}
+.preview-prose pre code {
+  color: inherit;
+  padding: 0.25em !important;
+  background: transparent;
 }
 .dark .preview-prose pre {
   background: hsl(var(--foreground) / 0.035) !important;
+  color: hsl(var(--foreground) / 0.92);
   border-color: hsl(var(--foreground) / 0.06);
   border-top-color: hsl(var(--foreground) / 0.08);
   box-shadow: inset 0 1px 0 0 hsl(0 0% 100% / 0.02), 0 1px 3px 0 hsl(var(--foreground) / 0.04);
+}
+.dark .preview-prose pre code {
+  color: inherit;
+  background: transparent;
 }
 
 .preview-prose :not(pre) > code {

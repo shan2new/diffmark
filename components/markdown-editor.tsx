@@ -1,14 +1,16 @@
 "use client"
 
-import React from "react"
-
-import { useState, useCallback, useMemo } from "react"
+import React, { useState, useCallback, useMemo } from "react"
 import ReactMarkdown from "react-markdown"
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
+import oneLight from "react-syntax-highlighter/dist/cjs/styles/prism/one-light"
+import oneDark from "react-syntax-highlighter/dist/cjs/styles/prism/one-dark"
 import {
   Panel,
   PanelGroup,
   PanelResizeHandle,
 } from "react-resizable-panels"
+import { useTheme } from "next-themes"
 
 
 const INITIAL_MARKDOWN = `# Welcome to Markos
@@ -45,7 +47,7 @@ Inline code like \`const x = 42\` renders with a subtle background.
 
 Code blocks get their own treatment:
 
-\`\`\`
+\`\`\`javascript
 function fibonacci(n) {
   if (n <= 1) return n;
   return fibonacci(n - 1) + fibonacci(n - 2);
@@ -86,6 +88,57 @@ function ResizeHandle() {
 }
 
 
+
+function getCodeString(children: React.ReactNode): string {
+  if (typeof children === "string") return children
+  if (Array.isArray(children)) return children.map((c) => (typeof c === "string" ? c : "")).join("")
+  return String(children)
+}
+
+function CodeBlock({
+  inline,
+  className,
+  children,
+  ...props
+}: Readonly<React.HTMLAttributes<HTMLElement> & {
+  inline?: boolean
+  className?: string
+  children?: React.ReactNode
+}>) {
+  const { resolvedTheme } = useTheme()
+  const isDark = resolvedTheme === "dark"
+
+  if (inline) {
+    return (
+      <code className={className} {...props}>
+        {children}
+      </code>
+    )
+  }
+
+  const match = /language-(\w+)/.exec(className ?? "")
+  const lang = match ? match[1] : "text"
+  const theme = isDark ? oneDark : oneLight
+
+  return (
+    <SyntaxHighlighter
+      language={lang}
+      style={theme}
+      PreTag="pre"
+      codeTagProps={{ style: {} }}
+      customStyle={{
+        margin: 0,
+        borderRadius: 8,
+        fontSize: "12.5px",
+        lineHeight: 1.7,
+        padding: "1em 1.25em",
+      }}
+      useInlineStyles
+    >
+      {getCodeString(children).replace(/\n$/, "")}
+    </SyntaxHighlighter>
+  )
+}
 
 export function MarkdownEditor() {
   const [markdown, setMarkdown] = useState(INITIAL_MARKDOWN)
@@ -147,7 +200,9 @@ export function MarkdownEditor() {
                   prose-a:font-medium
                   prose-img:rounded-lg"
               >
-                <ReactMarkdown>{markdown}</ReactMarkdown>
+                <ReactMarkdown components={{ code: CodeBlock }}>
+                  {markdown}
+                </ReactMarkdown>
               </article>
             </div>
             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-foreground/[0.018] dark:from-[hsl(220_10%_4%)] to-transparent z-10" />
