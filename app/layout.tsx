@@ -21,7 +21,7 @@ const outfit = Outfit({
 })
 
 export const metadata: Metadata = {
-  title: 'Markpad - Markdown Editor',
+  title: 'Diffmark - Markdown Editor',
   description: 'A minimal, elegant side-by-side markdown editor with live preview.',
 }
 
