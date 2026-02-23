@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="hsl(30, 20%, 99%)"/>
+  <text x="600" y="320" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="600" fill="hsl(30, 8%, 8%)" text-anchor="middle">Markos</text>
+  <text x="600" y="400" font-family="system-ui, -apple-system, sans-serif" font-size="28" fill="hsl(30, 8%, 35%)" text-anchor="middle">Free online markdown editor with live preview</text>
+</svg>
