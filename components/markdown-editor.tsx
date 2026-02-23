@@ -11,7 +11,7 @@ import {
 } from "react-resizable-panels"
 
 
-const INITIAL_MARKDOWN = `# Welcome to Diffmark
+const INITIAL_MARKDOWN = `# Welcome to Markos
 
 A minimal, elegant markdown editor with live preview.
 
@@ -21,7 +21,7 @@ Start typing on the left and watch the rendered output appear in real time on th
 
 ## Typography
 
-Diffmark renders your content with **carefully tuned typography** designed for readability. You can use *italics*, **bold**, or ~~strikethrough~~ to emphasize your text.
+Markos renders your content with **carefully tuned typography** designed for readability. You can use *italics*, **bold**, or ~~strikethrough~~ to emphasize your text.
 
 ## Lists
 

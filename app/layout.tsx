@@ -21,8 +21,11 @@ const outfit = Outfit({
 })
 
 export const metadata: Metadata = {
-  title: 'Diffmark - Markdown Editor',
+  title: 'Markos - Markdown Editor',
   description: 'A minimal, elegant side-by-side markdown editor with live preview.',
+  icons: {
+    icon: { url: '/icon.svg', type: 'image/svg+xml' },
+  },
 }
 
 export default function RootLayout({

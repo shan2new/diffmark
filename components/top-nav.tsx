@@ -17,7 +17,7 @@ export function TopNav() {
       {/* Brand */}
       <div className="flex items-center gap-3">
         <span className="font-brand text-[14px] font-semibold tracking-tight text-foreground select-none" style={{ fontFeatureSettings: '"ss01"' }}>
-          diffmark
+          markos
         </span>
         <span className="hidden sm:block h-3.5 w-px bg-foreground/[0.1]" />
         <span className="hidden sm:block text-[11px] text-muted-foreground/50 dark:text-muted-foreground/40 select-none">
