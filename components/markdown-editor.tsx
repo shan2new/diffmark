@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback, useMemo } from "react"
 import ReactMarkdown from "react-markdown"
+import remarkGfm from "remark-gfm"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import oneLight from "react-syntax-highlighter/dist/cjs/styles/prism/one-light"
 import oneDark from "react-syntax-highlighter/dist/cjs/styles/prism/one-dark"
@@ -59,6 +60,23 @@ function fibonacci(n) {
 > Good design is as little design as possible. Less, but better, because it concentrates on the essential aspects.
 >
 > — Dieter Rams
+
+## Tables
+
+| Feature       | Status    | Priority |
+| ------------- | --------- | -------- |
+| Live preview  | Done      | High     |
+| GFM support   | Done      | High     |
+| Dark mode     | Done      | Medium   |
+| Export to PDF  | Planned   | Low      |
+
+## Task Lists
+
+- [x] Set up markdown parser
+- [x] Add syntax highlighting
+- [x] Implement GFM support
+- [ ] Add export functionality
+- [ ] Write documentation
 
 ## Links
 
@@ -200,7 +218,31 @@ export function MarkdownEditor() {
                   prose-a:font-medium
                   prose-img:rounded-lg"
               >
-                <ReactMarkdown components={{ code: CodeBlock }}>
+                <ReactMarkdown
+                  remarkPlugins={[remarkGfm]}
+                  components={{
+                    code: CodeBlock,
+                    table: ({ children, ...props }) => (
+                      <div className="table-wrapper">
+                        <table {...props}>{children}</table>
+                      </div>
+                    ),
+                    input: ({ type, checked, ...props }) => {
+                      if (type === "checkbox") {
+                        return (
+                          <input
+                            type="checkbox"
+                            checked={checked}
+                            disabled
+                            className="task-checkbox"
+                            {...props}
+                          />
+                        )
+                      }
+                      return <input type={type} {...props} />
+                    },
+                  }}
+                >
                   {markdown}
                 </ReactMarkdown>
               </article>
