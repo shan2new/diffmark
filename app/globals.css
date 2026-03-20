@@ -274,3 +274,103 @@
   font-weight: 500;
   font-size: 0.9em;
 }
+
+/* ------------------------------------------------------------------ */
+/*  Tables                                                             */
+/* ------------------------------------------------------------------ */
+.preview-prose .table-wrapper {
+  overflow-x: auto;
+  margin: 1.5em 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.preview-prose table {
+  width: 100%;
+  font-size: 13px;
+  border-collapse: collapse;
+  margin: 0;
+}
+
+.preview-prose thead th {
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: hsl(var(--foreground) / 0.45);
+  border-bottom: 1.5px solid hsl(var(--foreground) / 0.08);
+  padding: 0.5em 1em 0.6em;
+  text-align: left;
+}
+
+.preview-prose tbody td {
+  color: hsl(var(--foreground) / 0.6);
+  border-bottom: 1px solid hsl(var(--foreground) / 0.05);
+  padding: 0.55em 1em;
+}
+
+.preview-prose tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.dark .preview-prose thead th {
+  border-bottom-color: hsl(var(--foreground) / 0.1);
+}
+
+.dark .preview-prose tbody td {
+  border-bottom-color: hsl(var(--foreground) / 0.07);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Task list checkboxes                                               */
+/* ------------------------------------------------------------------ */
+.preview-prose li:has(> .task-checkbox) {
+  list-style: none;
+  margin-left: -1.25em;
+}
+
+.preview-prose .task-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid hsl(var(--foreground) / 0.15);
+  border-radius: 3px;
+  vertical-align: -2px;
+  margin-right: 0.5em;
+  position: relative;
+  cursor: default;
+}
+
+.preview-prose .task-checkbox:checked {
+  background: hsl(var(--accent) / 0.15);
+  border-color: hsl(var(--accent) / 0.4);
+}
+
+.preview-prose .task-checkbox:checked::after {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 0.5px;
+  width: 5px;
+  height: 8px;
+  border: solid hsl(var(--accent));
+  border-width: 0 1.5px 1.5px 0;
+  transform: rotate(45deg);
+}
+
+.dark .preview-prose .task-checkbox {
+  border-color: hsl(var(--foreground) / 0.2);
+}
+
+.dark .preview-prose .task-checkbox:checked {
+  background: hsl(var(--accent) / 0.12);
+  border-color: hsl(var(--accent) / 0.35);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Strikethrough                                                      */
+/* ------------------------------------------------------------------ */
+.preview-prose del {
+  color: hsl(var(--foreground) / 0.35);
+  text-decoration-color: hsl(var(--foreground) / 0.25);
+}
